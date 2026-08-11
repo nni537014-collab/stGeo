@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200" profile="trust-st-complete-v1">
+  <fileHeader companyName="truST" productName="trust-runtime" productVersion="0.24.54" creationDateTime="1786456263Z"/>
+  <contentHeader name="conveyor"/>
+  <types>
+    <dataTypes>
+      <dataType name="XY">
+        <baseType>
+          <struct>
+            <variable name="X">
+              <type>
+                <lreal />
+              </type>
+            </variable>
+            <variable name="Y">
+              <type>
+                <lreal />
+              </type>
+            </variable>
+          </struct>
+        </baseType>
+      </dataType>
+    </dataTypes>
+    <pous>
+      <pou name="RotateSquarePoints" pouType="function">
+        <body>
+          <ST><![CDATA[FUNCTION RotateSquarePoints : XYPoints
+VAR_IN_OUT
+    Square : XYPoints;
+END_VAR
+VAR
+   X : LREAL;
+   Y : LREAL;
+   I : INT;
+END_VAR
+FOR I := 0 TO 3 DO 
+    X := Square[I].X;
+    Y := Square[I].Y;
+    Square[I] := RotateXY(
+    X := X,
+    Y := Y,
+    THETA := 90.0
+    );
+END_FOR
+RotateSquarePoints := Square;
+END_FUNCTION
+]]></ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+            <InterfaceAsPlainText>
+              <xhtml xmlns="http://www.w3.org/1999/xhtml">FUNCTION RotateSquarePoints : XYPoints
+VAR_IN_OUT
+    Square : XYPoints;
+END_VAR
+VAR
+   X : LREAL;
+   Y : LREAL;
+   I : INT;
+END_VAR
+FOR I := 0 TO 3 DO 
+    X := Square[I].X;
+    Y := Square[I].Y;
+    Square[I] := RotateXY(
+    X := X,
+    Y := Y,
+    THETA := 90.0
+    );
+END_FOR
+RotateSquarePoints := Square;
+END_FUNCTION
+</xhtml>
+            </InterfaceAsPlainText>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>e2708e3a-8ff6-7d60-ab74-2c5654fb9bd4</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="RotateXY" pouType="function">
+        <body>
+          <ST><![CDATA[FUNCTION RotateXY : XY
+VAR_INPUT
+    X : LREAL;
+    Y : LREAL;
+    THETA : LREAL;
+END_VAR
+VAR
+    Out : XY;
+    SinM : LREAL;
+    CosM : LREAL;
+    THETA_RAD : LREAL;
+END_VAR 
+   
+   THETA_RAD := REAL_TO_LREAL(
+    RAD(
+        LREAL_TO_REAL(THETA)
+        )
+    );  
+   SinM := SIN(THETA_RAD);
+   Cosm := COS(THETA_RAD);
+   Out.X := X * CosM - Y * SinM;
+   Out.Y := X * SinM + Y * CosM;
+   RotateXY := Out;
+END_FUNCTION
+]]></ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+            <InterfaceAsPlainText>
+              <xhtml xmlns="http://www.w3.org/1999/xhtml">FUNCTION RotateXY : XY
+VAR_INPUT
+    X : LREAL;
+    Y : LREAL;
+    THETA : LREAL;
+END_VAR
+VAR
+    Out : XY;
+    SinM : LREAL;
+    CosM : LREAL;
+    THETA_RAD : LREAL;
+END_VAR 
+   
+   THETA_RAD := REAL_TO_LREAL(
+    RAD(
+        LREAL_TO_REAL(THETA)
+        )
+    );  
+   SinM := SIN(THETA_RAD);
+   Cosm := COS(THETA_RAD);
+   Out.X := X * CosM - Y * SinM;
+   Out.Y := X * SinM + Y * CosM;
+   RotateXY := Out;
+END_FUNCTION
+</xhtml>
+            </InterfaceAsPlainText>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>5508a3a5-0d16-0a8d-8c33-6faabd2b58dd</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="SquarePoints" pouType="function">
+        <body>
+          <ST><![CDATA[FUNCTION SquarePoints : XYPoints
+VAR_OUTPUT
+    //Square : Array[0..1] of LREAL;//XYPoints;
+END_VAR
+VAR_INPUT
+    Length : LREAL := 5.0;
+    
+END_VAR
+VAR
+   Zero : LREAL := 0.0;
+   Square : XYPoints;
+END_VAR
+
+    Square[0].X := Zero;
+    Square[0].Y := Length;
+    Square[1].X := Length;
+    Square[1].Y := Length;    
+    Square[2].X := Length;
+    Square[2].Y := Zero;
+    Square[3].X := Zero;
+    Square[3].Y := Zero; 
+    SquarePoints := Square;
+END_FUNCTION
+]]></ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+            <InterfaceAsPlainText>
+              <xhtml xmlns="http://www.w3.org/1999/xhtml">FUNCTION SquarePoints : XYPoints
+VAR_OUTPUT
+    //Square : Array[0..1] of LREAL;//XYPoints;
+END_VAR
+VAR_INPUT
+    Length : LREAL := 5.0;
+    
+END_VAR
+VAR
+   Zero : LREAL := 0.0;
+   Square : XYPoints;
+END_VAR
+
+    Square[0].X := Zero;
+    Square[0].Y := Length;
+    Square[1].X := Length;
+    Square[1].Y := Length;    
+    Square[2].X := Length;
+    Square[2].Y := Zero;
+    Square[3].X := Zero;
+    Square[3].Y := Zero; 
+    SquarePoints := Square;
+END_FUNCTION
+</xhtml>
+            </InterfaceAsPlainText>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>985419e2-9a8a-1ec5-9b3f-e3d89f36108b</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="MainProgram" pouType="program">
+        <body>
+          <ST><![CDATA[
+PROGRAM MainProgram
+VAR
+    e_stop         : BOOL;   (* %IX0.0 — write TRUE to stop the line *)
+    running        : BOOL;   (* %QX2.0 *)
+    conveyor_speed : INT;    (* %QW0   *)
+    part_count     : INT;    (* %MW0   *)
+    out : XYPoints;
+    Length : LREAL := 5.0;
+END_VAR
+
+out := SquarePoints();//Length := Length);//, Square => out); 
+RotateSquarePoints(Square := out);
+running := NOT e_stop;
+IF running THEN
+    IF conveyor_speed < 100 THEN
+        conveyor_speed := conveyor_speed + 5;
+    ELSE
+        part_count := part_count + 1;
+        conveyor_speed := 0;
+    END_IF;
+ELSE
+    conveyor_speed := 0;
+END_IF;
+END_PROGRAM
+
+]]></ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+            <InterfaceAsPlainText>
+              <xhtml xmlns="http://www.w3.org/1999/xhtml">
+PROGRAM MainProgram
+VAR
+    e_stop         : BOOL;   (* %IX0.0 — write TRUE to stop the line *)
+    running        : BOOL;   (* %QX2.0 *)
+    conveyor_speed : INT;    (* %QW0   *)
+    part_count     : INT;    (* %MW0   *)
+    out : XYPoints;
+    Length : LREAL := 5.0;
+END_VAR
+
+out := SquarePoints();//Length := Length);//, Square =&gt; out); 
+RotateSquarePoints(Square := out);
+running := NOT e_stop;
+IF running THEN
+    IF conveyor_speed &lt; 100 THEN
+        conveyor_speed := conveyor_speed + 5;
+    ELSE
+        part_count := part_count + 1;
+        conveyor_speed := 0;
+    END_IF;
+ELSE
+    conveyor_speed := 0;
+END_IF;
+END_PROGRAM
+
+</xhtml>
+            </InterfaceAsPlainText>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>9f3de1fc-75bb-3c9e-9ae9-8a7f7bc7801b</ObjectId>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations>
+      <configuration name="ConveyorCell">
+        <task name="Cycle" interval="T#50ms" priority="1" />
+        <pouInstance name="P1" typeName="MainProgram" task="Cycle" />
+      </configuration>
+    </configurations>
+  </instances>
+  <addData>
+    <data name="trust.sourceMap" handleUnknown="implementation"><text><![CDATA[{
+  "profile": "trust-st-complete-v1",
+  "namespace": "http://www.plcopen.org/xml/tc6_0200",
+  "entries": [
+    {
+      "name": "RotateSquarePoints",
+      "pou_type": "function",
+      "source": "src\\Functions\\RotateSquarePoints.st",
+      "line": 1
+    },
+    {
+      "name": "RotateXY",
+      "pou_type": "function",
+      "source": "src\\Functions\\RotateXY.st",
+      "line": 1
+    },
+    {
+      "name": "SquarePoints",
+      "pou_type": "function",
+      "source": "src\\Functions\\SquarePoints.st",
+      "line": 1
+    },
+    {
+      "name": "MainProgram",
+      "pou_type": "program",
+      "source": "src\\Main.st",
+      "line": 2
+    }
+  ]
+}]]></text></data>
+    <data name="http://www.3s-software.com/plcopenxml/application" handleUnknown="implementation">
+      <resource name="Application">
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/pou" handleUnknown="implementation">
+            <pou name="RotateSquarePoints" pouType="function">
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">FUNCTION RotateSquarePoints : XYPoints
+VAR_IN_OUT
+    Square : XYPoints;
+END_VAR
+VAR
+   X : LREAL;
+   Y : LREAL;
+   I : INT;
+END_VAR
+FOR I := 0 TO 3 DO 
+    X := Square[I].X;
+    Y := Square[I].Y;
+    Square[I] := RotateXY(
+    X := X,
+    Y := Y,
+    THETA := 90.0
+    );
+END_FOR
+RotateSquarePoints := Square;
+END_FUNCTION
+</xhtml>
+                </ST>
+              </body>
+              <addData>
+                <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+                  <InterfaceAsPlainText>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">FUNCTION RotateSquarePoints : XYPoints
+VAR_IN_OUT
+    Square : XYPoints;
+END_VAR
+VAR
+   X : LREAL;
+   Y : LREAL;
+   I : INT;
+END_VAR
+FOR I := 0 TO 3 DO 
+    X := Square[I].X;
+    Y := Square[I].Y;
+    Square[I] := RotateXY(
+    X := X,
+    Y := Y,
+    THETA := 90.0
+    );
+END_FOR
+RotateSquarePoints := Square;
+END_FUNCTION
+</xhtml>
+                  </InterfaceAsPlainText>
+                </data>
+                <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+                  <ObjectId>e2708e3a-8ff6-7d60-ab74-2c5654fb9bd4</ObjectId>
+                </data>
+              </addData>
+            </pou>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/pou" handleUnknown="implementation">
+            <pou name="RotateXY" pouType="function">
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">FUNCTION RotateXY : XY
+VAR_INPUT
+    X : LREAL;
+    Y : LREAL;
+    THETA : LREAL;
+END_VAR
+VAR
+    Out : XY;
+    SinM : LREAL;
+    CosM : LREAL;
+    THETA_RAD : LREAL;
+END_VAR 
+   
+   THETA_RAD := REAL_TO_LREAL(
+    RAD(
+        LREAL_TO_REAL(THETA)
+        )
+    );  
+   SinM := SIN(THETA_RAD);
+   Cosm := COS(THETA_RAD);
+   Out.X := X * CosM - Y * SinM;
+   Out.Y := X * SinM + Y * CosM;
+   RotateXY := Out;
+END_FUNCTION
+</xhtml>
+                </ST>
+              </body>
+              <addData>
+                <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+                  <InterfaceAsPlainText>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">FUNCTION RotateXY : XY
+VAR_INPUT
+    X : LREAL;
+    Y : LREAL;
+    THETA : LREAL;
+END_VAR
+VAR
+    Out : XY;
+    SinM : LREAL;
+    CosM : LREAL;
+    THETA_RAD : LREAL;
+END_VAR 
+   
+   THETA_RAD := REAL_TO_LREAL(
+    RAD(
+        LREAL_TO_REAL(THETA)
+        )
+    );  
+   SinM := SIN(THETA_RAD);
+   Cosm := COS(THETA_RAD);
+   Out.X := X * CosM - Y * SinM;
+   Out.Y := X * SinM + Y * CosM;
+   RotateXY := Out;
+END_FUNCTION
+</xhtml>
+                  </InterfaceAsPlainText>
+                </data>
+                <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+                  <ObjectId>5508a3a5-0d16-0a8d-8c33-6faabd2b58dd</ObjectId>
+                </data>
+              </addData>
+            </pou>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/pou" handleUnknown="implementation">
+            <pou name="SquarePoints" pouType="function">
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">FUNCTION SquarePoints : XYPoints
+VAR_OUTPUT
+    //Square : Array[0..1] of LREAL;//XYPoints;
+END_VAR
+VAR_INPUT
+    Length : LREAL := 5.0;
+    
+END_VAR
+VAR
+   Zero : LREAL := 0.0;
+   Square : XYPoints;
+END_VAR
+
+    Square[0].X := Zero;
+    Square[0].Y := Length;
+    Square[1].X := Length;
+    Square[1].Y := Length;    
+    Square[2].X := Length;
+    Square[2].Y := Zero;
+    Square[3].X := Zero;
+    Square[3].Y := Zero; 
+    SquarePoints := Square;
+END_FUNCTION
+</xhtml>
+                </ST>
+              </body>
+              <addData>
+                <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+                  <InterfaceAsPlainText>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">FUNCTION SquarePoints : XYPoints
+VAR_OUTPUT
+    //Square : Array[0..1] of LREAL;//XYPoints;
+END_VAR
+VAR_INPUT
+    Length : LREAL := 5.0;
+    
+END_VAR
+VAR
+   Zero : LREAL := 0.0;
+   Square : XYPoints;
+END_VAR
+
+    Square[0].X := Zero;
+    Square[0].Y := Length;
+    Square[1].X := Length;
+    Square[1].Y := Length;    
+    Square[2].X := Length;
+    Square[2].Y := Zero;
+    Square[3].X := Zero;
+    Square[3].Y := Zero; 
+    SquarePoints := Square;
+END_FUNCTION
+</xhtml>
+                  </InterfaceAsPlainText>
+                </data>
+                <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+                  <ObjectId>985419e2-9a8a-1ec5-9b3f-e3d89f36108b</ObjectId>
+                </data>
+              </addData>
+            </pou>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/pou" handleUnknown="implementation">
+            <pou name="MainProgram" pouType="program">
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">
+PROGRAM MainProgram
+VAR
+    e_stop         : BOOL;   (* %IX0.0 — write TRUE to stop the line *)
+    running        : BOOL;   (* %QX2.0 *)
+    conveyor_speed : INT;    (* %QW0   *)
+    part_count     : INT;    (* %MW0   *)
+    out : XYPoints;
+    Length : LREAL := 5.0;
+END_VAR
+
+out := SquarePoints();//Length := Length);//, Square =&gt; out); 
+RotateSquarePoints(Square := out);
+running := NOT e_stop;
+IF running THEN
+    IF conveyor_speed &lt; 100 THEN
+        conveyor_speed := conveyor_speed + 5;
+    ELSE
+        part_count := part_count + 1;
+        conveyor_speed := 0;
+    END_IF;
+ELSE
+    conveyor_speed := 0;
+END_IF;
+END_PROGRAM
+
+</xhtml>
+                </ST>
+              </body>
+              <addData>
+                <data name="http://www.3s-software.com/plcopenxml/interfaceasplaintext" handleUnknown="implementation">
+                  <InterfaceAsPlainText>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">
+PROGRAM MainProgram
+VAR
+    e_stop         : BOOL;   (* %IX0.0 — write TRUE to stop the line *)
+    running        : BOOL;   (* %QX2.0 *)
+    conveyor_speed : INT;    (* %QW0   *)
+    part_count     : INT;    (* %MW0   *)
+    out : XYPoints;
+    Length : LREAL := 5.0;
+END_VAR
+
+out := SquarePoints();//Length := Length);//, Square =&gt; out); 
+RotateSquarePoints(Square := out);
+running := NOT e_stop;
+IF running THEN
+    IF conveyor_speed &lt; 100 THEN
+        conveyor_speed := conveyor_speed + 5;
+    ELSE
+        part_count := part_count + 1;
+        conveyor_speed := 0;
+    END_IF;
+ELSE
+    conveyor_speed := 0;
+END_IF;
+END_PROGRAM
+
+</xhtml>
+                  </InterfaceAsPlainText>
+                </data>
+                <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+                  <ObjectId>9f3de1fc-75bb-3c9e-9ae9-8a7f7bc7801b</ObjectId>
+                </data>
+              </addData>
+            </pou>
+          </data>
+        </addData>
+      </resource>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Object Name="Application" ObjectId="e9b4c5c4-4ae2-436d-9d00-c335d73e487e">
+          <Object Name="Functions" ObjectId="4099919f-6a25-2117-c561-b3503f5c4007">
+            <Object Name="RotateSquarePoints" ObjectId="e2708e3a-8ff6-7d60-ab74-2c5654fb9bd4" />
+            <Object Name="RotateXY" ObjectId="5508a3a5-0d16-0a8d-8c33-6faabd2b58dd" />
+            <Object Name="SquarePoints" ObjectId="985419e2-9a8a-1ec5-9b3f-e3d89f36108b" />
+          </Object>
+          <Object Name="MainProgram" ObjectId="9f3de1fc-75bb-3c9e-9ae9-8a7f7bc7801b" />
+        </Object>
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

@@ -1,0 +1,30 @@
+{
+  "profile": "trust-st-complete-v1",
+  "namespace": "http://www.plcopen.org/xml/tc6_0200",
+  "entries": [
+    {
+      "name": "RotateSquarePoints",
+      "pou_type": "function",
+      "source": "src\\Functions\\RotateSquarePoints.st",
+      "line": 1
+    },
+    {
+      "name": "RotateXY",
+      "pou_type": "function",
+      "source": "src\\Functions\\RotateXY.st",
+      "line": 1
+    },
+    {
+      "name": "SquarePoints",
+      "pou_type": "function",
+      "source": "src\\Functions\\SquarePoints.st",
+      "line": 1
+    },
+    {
+      "name": "MainProgram",
+      "pou_type": "program",
+      "source": "src\\Main.st",
+      "line": 2
+    }
+  ]
+}

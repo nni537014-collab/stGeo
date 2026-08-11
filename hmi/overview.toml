@@ -1,0 +1,102 @@
+title = "Overview"
+icon = "activity"
+order = 0
+kind = "dashboard"
+
+[[section]]
+title = "Key Metrics"
+span = 12
+tier = "hero"
+
+[[section.widget]]
+type = "value"
+bind = "P1.conveyor_speed"
+label = "Conveyor Speed"
+unit = "rpm"
+min = 0
+max = 3600
+span = 4
+inferred_interface = true
+
+[[section]]
+title = "Status"
+span = 12
+tier = "status"
+
+[[section.widget]]
+type = "indicator"
+bind = "P1.e_stop"
+label = "E Stop"
+span = 2
+inferred_interface = true
+
+[[section]]
+title = "Details"
+span = 12
+tier = "detail"
+
+[[section.widget]]
+type = "value"
+bind = "P1.part_count"
+label = "Part Count"
+min = 0
+max = 100
+span = 3
+inferred_interface = true
+
+[[section.widget]]
+type = "indicator"
+bind = "P1.running"
+label = "Running"
+span = 3
+inferred_interface = true
+
+[[section.widget]]
+type = "table"
+bind = "P1.out"
+label = "OUT"
+span = 3
+inferred_interface = true
+
+[[section.widget]]
+type = "tree"
+bind = "global.LANGUAGE"
+label = "Language"
+span = 3
+
+[[section.widget]]
+type = "value"
+bind = "global.LIST_LENGTH"
+label = "List Length"
+min = 0
+max = 100
+span = 3
+
+[[section.widget]]
+type = "tree"
+bind = "global.MATH"
+label = "Math"
+span = 3
+
+[[section.widget]]
+type = "tree"
+bind = "global.PHYS"
+label = "Phys"
+span = 3
+
+[[section.widget]]
+type = "value"
+bind = "global.STRING_LENGTH"
+label = "String Length"
+min = 0
+max = 100
+span = 3
+
+[[section.widget]]
+type = "gauge"
+bind = "P1.Length"
+label = "Length"
+min = 0
+max = 100
+span = 3
+inferred_interface = true

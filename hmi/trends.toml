@@ -1,0 +1,6 @@
+title = "Trends"
+icon = "line-chart"
+order = 50
+kind = "trend"
+duration_s = 600
+signals = ["P1.conveyor_speed", "P1.part_count", "global.LIST_LENGTH", "global.STRING_LENGTH", "P1.Length"]

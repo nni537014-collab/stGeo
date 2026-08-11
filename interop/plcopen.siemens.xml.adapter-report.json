@@ -1,0 +1,46 @@
+{
+  "target": "siemens-tia",
+  "target_label": "Siemens TIA Portal",
+  "source_xml": "C:\\Users\\Booth\\prjTmp\\export\\conveyor\\interop\\plcopen.siemens.xml",
+  "source_map_path": "C:\\Users\\Booth\\prjTmp\\export\\conveyor\\interop\\plcopen.siemens.source-map.json",
+  "siemens_scl_bundle_dir": "C:\\Users\\Booth\\prjTmp\\export\\conveyor\\interop\\plcopen.siemens.xml.scl",
+  "siemens_scl_files": [
+    "C:\\Users\\Booth\\prjTmp\\export\\conveyor\\interop\\plcopen.siemens.xml.scl\\000_types.scl",
+    "C:\\Users\\Booth\\prjTmp\\export\\conveyor\\interop\\plcopen.siemens.xml.scl\\001_fc_RotateSquarePoints.scl",
+    "C:\\Users\\Booth\\prjTmp\\export\\conveyor\\interop\\plcopen.siemens.xml.scl\\002_fc_RotateXY.scl",
+    "C:\\Users\\Booth\\prjTmp\\export\\conveyor\\interop\\plcopen.siemens.xml.scl\\003_fc_SquarePoints.scl",
+    "C:\\Users\\Booth\\prjTmp\\export\\conveyor\\interop\\plcopen.siemens.xml.scl\\004_ob_MainProgram.scl"
+  ],
+  "diagnostics": [
+    {
+      "code": "PLCO7SI0",
+      "severity": "info",
+      "message": "Generated Siemens adapter artifact from 6 source file(s) and 5 ST declaration(s).",
+      "action": "Use the adapter report as the import checklist for TIA Portal migration."
+    },
+    {
+      "code": "PLCO7SI1",
+      "severity": "warning",
+      "message": "Configuration/resource/task/program bindings require manual OB/task mapping in TIA Portal.",
+      "action": "Map PLCopen tasks to cyclic/event OBs and bind program instances explicitly."
+    },
+    {
+      "code": "PLCO7SI2",
+      "severity": "warning",
+      "message": "Detected direct `%I/%Q/%M` addressing markers.",
+      "action": "Reconcile address markers with TIA memory areas and hardware configuration manually."
+    }
+  ],
+  "manual_steps": [
+    "Import generated `.scl` files from the Siemens SCL sidecar bundle via TIA Portal: External source files -> Add new external file.",
+    "Generate blocks from each imported source file in TIA Portal.",
+    "Map tasks/program instances to OB scheduling and call hierarchy in TIA Portal.",
+    "Validate memory-marker and retentive data behavior against PLC commissioning tests.",
+    "Run conformance plus project-specific smoke tests after migration."
+  ],
+  "limitations": [
+    "v1 generates PLCopen XML + `.scl` source bundle + adapter diagnostics, not native .apXX project archives.",
+    "Hardware topology, technology objects, and safety project metadata are not generated.",
+    "Vendor library semantics beyond symbol-level mapping remain manual migration work."
+  ]
+}

@@ -1,0 +1,30 @@
+version = 1
+
+[theme]
+style = "industrial"
+accent = "#c2410c"
+
+[layout]
+navigation = "sidebar-left"
+header = true
+header_title = "P1 HMI"
+
+[write]
+enabled = false
+allow = []
+
+[[alarm]]
+bind = "P1.conveyor_speed"
+high = 3600
+low = 0
+deadband = 72
+inferred = true
+label = "Conveyor Speed"
+
+[[alarm]]
+bind = "P1.part_count"
+high = 100
+low = 0
+deadband = 2
+inferred = true
+label = "Part Count"
