@@ -2,4 +2,4 @@ version = 1
 
 [dependencies.OSCAT]
 source = "path"
-path = "/root/libraries/oscat"
+path = '\\?\C:\Users\Booth\prj\libraries\oscat'

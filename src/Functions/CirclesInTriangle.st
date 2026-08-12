@@ -7,7 +7,7 @@ END_TYPE
 
 FUNCTION CirclesInTriangle : CirclesInTriangleError
     VAR_INPUT
-        Radius : LREAL := 1.0;
+        Radius : LREAL := 5.0;
         Rows : UINT := 5;
         // possibly set max rows and  
     END_VAR
