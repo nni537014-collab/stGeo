@@ -75,3 +75,22 @@ TEST_FUNCTION_BLOCK RotateSquarePointsTest
     );
     
 END_TEST_FUNCTION_BLOCK
+
+TEST_FUNCTION_BLOCK CirclesInTriangleErrorTest
+    VAR
+       Points : XYPoints;
+       Res : XYPoints;
+       Rows : UINT := 12; //CONST?
+       Error : CirclesInTriangleError
+    END_VAR
+    Error := CirclesInTriangle(Rows := Rows);
+
+    ASSERT_EQUAL(EXPECTED := CirclesInTriangleError#ROWS_EXCEEDED,
+                ACTUAL := Error,
+    );
+    // ASSERT_NEAR(EXPECTED := LREAL#0.0,
+    //             ACTUAL := Res[0].Y,
+    //             DELTA := LREAL#0.015
+    // );
+    
+END_TEST_FUNCTION_BLOCK
