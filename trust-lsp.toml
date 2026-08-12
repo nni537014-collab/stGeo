@@ -3,4 +3,4 @@ include_paths = ["src"]
 stdlib = "iec"
 
 [dependencies]
-OSCAT = { path = "../../libraries/oscat", version = "0.1.0" }
+OSCAT = { path = "../libraries/oscat", version = "0.1.0" }

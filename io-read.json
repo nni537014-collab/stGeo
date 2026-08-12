@@ -1,0 +1,112 @@
+{
+  "audit_id": "audit-1786463344362-1-5f407ac0",
+  "id": 1,
+  "ok": true,
+  "result": {
+    "snapshot": {
+      "inputs": [
+        {
+          "address": "%IX0.0",
+          "forced": false,
+          "name": "P1.e_stop",
+          "source": "Simulated I/O",
+          "value": "Bool(false)",
+          "valueType": "BOOL"
+        }
+      ],
+      "memory": [
+        {
+          "address": "%MW0",
+          "forced": false,
+          "name": "P1.part_count",
+          "source": "Internal memory",
+          "value": "Int(26)",
+          "valueType": "INT"
+        },
+        {
+          "address": "%ML2",
+          "forced": false,
+          "name": "P1.out",
+          "source": "Internal memory",
+          "value": "LReal(-4.999999999999995)",
+          "valueType": "LREAL"
+        },
+        {
+          "address": "%ML10",
+          "forced": false,
+          "name": "P1.out",
+          "source": "Internal memory",
+          "value": "LReal(-2.1855695000931206e-7)",
+          "valueType": "LREAL"
+        },
+        {
+          "address": "%ML18",
+          "forced": false,
+          "name": "P1.out",
+          "source": "Internal memory",
+          "value": "LReal(-5.000000218556945)",
+          "valueType": "LREAL"
+        },
+        {
+          "address": "%ML26",
+          "forced": false,
+          "name": "P1.out",
+          "source": "Internal memory",
+          "value": "LReal(4.999999781443044)",
+          "valueType": "LREAL"
+        },
+        {
+          "address": "%ML34",
+          "forced": false,
+          "name": "P1.out",
+          "source": "Internal memory",
+          "value": "LReal(-2.1855695000931206e-7)",
+          "valueType": "LREAL"
+        },
+        {
+          "address": "%ML42",
+          "forced": false,
+          "name": "P1.out",
+          "source": "Internal memory",
+          "value": "LReal(4.999999999999995)",
+          "valueType": "LREAL"
+        },
+        {
+          "address": "%ML50",
+          "forced": false,
+          "name": "P1.out",
+          "source": "Internal memory",
+          "value": "LReal(-0.0)",
+          "valueType": "LREAL"
+        },
+        {
+          "address": "%ML58",
+          "forced": false,
+          "name": "P1.out",
+          "source": "Internal memory",
+          "value": "LReal(0.0)",
+          "valueType": "LREAL"
+        }
+      ],
+      "outputs": [
+        {
+          "address": "%QX2.0",
+          "forced": false,
+          "name": "P1.running",
+          "source": "Simulated I/O",
+          "value": "Bool(true)",
+          "valueType": "BOOL"
+        },
+        {
+          "address": "%QW0",
+          "forced": false,
+          "name": "P1.conveyor_speed",
+          "source": "Simulated I/O",
+          "value": "Int(0)",
+          "valueType": "INT"
+        }
+      ],
+      "scan": 545
+    }
+  }
+}

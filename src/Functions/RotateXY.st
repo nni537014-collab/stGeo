@@ -1,11 +1,11 @@
-FUNCTION RotateXY : XY
+FUNCTION RotateXY : XYPoint
 VAR_INPUT
     X : LREAL;
     Y : LREAL;
     THETA : LREAL;
 END_VAR
 VAR
-    Out : XY;
+    Out : XYPoint;
     SinM : LREAL;
     CosM : LREAL;
     THETA_RAD : LREAL;
