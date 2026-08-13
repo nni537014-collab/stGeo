@@ -6,11 +6,14 @@ VAR
     conveyor_speed : INT;    (* %QW0   *)
     part_count     : INT;    (* %MW0   *)
     out : XYPoints;
-    Length : LREAL := 5.0;
+    Length : LREAL := LREAL#5.0;
+    Points : ARRAY [0..65] OF XYPoint;
 END_VAR
 
 out := SquarePoints();
 RotateSquarePoints(Square := out);
+Dut(Square => out);
+CirclesInTriangleBackUp(Points => Points);
 running := NOT e_stop;
 IF running THEN
     IF conveyor_speed < 100 THEN

@@ -100,3 +100,10 @@ min = 0
 max = 100
 span = 3
 inferred_interface = true
+
+[[section.widget]]
+type = "table"
+bind = "P1.Points"
+label = "Points"
+span = 3
+inferred_interface = true
